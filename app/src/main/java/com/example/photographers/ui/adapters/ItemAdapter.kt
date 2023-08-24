@@ -1,6 +1,5 @@
 package com.example.photographers.ui.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +34,7 @@ class ItemAdapter(private var items: List<Item>, private val listener: OnClickLi
         val item = items[position]
         with(holder){
             setListener(item)
-            binding.tvName.text = item.name
+            binding.tvName.text = item.firstName
             Picasso.get()
                 .load("todo") //TODO charge from local db
                 .error(R.drawable.baseline_broken_image_24)
