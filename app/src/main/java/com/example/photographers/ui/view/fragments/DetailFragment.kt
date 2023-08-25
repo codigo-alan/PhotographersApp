@@ -9,7 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.photographers.R
 import com.example.photographers.databinding.FragmentDetailBinding
+import com.example.photographers.domain.model.Item
 import com.example.photographers.ui.viewmodel.ListViewModel
+import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
 
@@ -27,6 +29,17 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val item: Item? = model.selectedItem.value
+        binding.itemInnerDetail.tvName.text = "${item?.firstName} ${item?.lastName}"
+        binding.descriptionTv.text = "${item?.description}"
+
+        Picasso.get()
+            .load("${item?.image}")
+            .error(R.drawable.baseline_broken_image_24)
+            .fit()
+            .centerCrop()
+            .into( binding.itemInnerDetail.ivPhoto)
+
 
         //Back button
         binding.toListBtn.setOnClickListener {
