@@ -47,7 +47,7 @@ class ListFragment : Fragment(), OnClickListener {
 
         model.items.observe(viewLifecycleOwner){
             itemAdapter.setItems(it)
-            Log.d("items", "${it}") //works fine
+            Log.d("items", "$it") //dev
         }
 
     }

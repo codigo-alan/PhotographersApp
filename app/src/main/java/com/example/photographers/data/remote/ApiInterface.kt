@@ -10,14 +10,14 @@ import retrofit2.http.GET
 
 interface ApiInterface {
 
-    @GET("/")
-    suspend fun getData(): Response<Data> //TODO verify how call this function
+    @GET("photographer")
+    suspend fun getData(): Response<Data> //Obtain data from api
     companion object {
 
-        private const val BASE_URL = "https://inphototest.app2u.es/api/photographer/"
+        private const val BASE_URL = "https://inphototest.app2u.es/api/"
         fun create(): ApiInterface {
             val client = OkHttpClient.Builder()
-                .addInterceptor(HeaderInterceptor("test@gmail.com", "1234")) //TODO added line to basic auth and accept json
+                .addInterceptor(HeaderInterceptor("test@gmail.com", "1234")) //interceptor header for basic auth for api
                 .build()
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)

@@ -9,7 +9,7 @@ class HeaderInterceptor(username: String, password: String): Interceptor {
         var request = chain.request()
         request = request.newBuilder()
             .addHeader("Authorization", credentials) //basic auth header
-            .addHeader("Accept:", "application/json") //accepts types header
+            //.addHeader("Accept:", "application/json") //accepts types header TODO not works with this
             .build()
         return chain.proceed(request)
     }
