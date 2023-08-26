@@ -16,6 +16,85 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/new_custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true"
+            app:shapeAppearanceOverlay="@style/RoundedFab"
+            android:contentDescription="calendar"
+            app:backgroundTint="@color/seed"/>
+
+        <TextView
+            android:id="@+id/tvCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Program"
+            app:layout_constraintEnd_toEndOf="@+id/fabCalendar"
+            app:layout_constraintStart_toStartOf="@+id/fabCalendar"
+            app:layout_constraintTop_toBottomOf="@+id/fabCalendar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_frame"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fabCalendar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true"
+            app:shapeAppearanceOverlay="@style/RoundedFab"
+            android:contentDescription="frame"
+            app:backgroundTint="@color/custom_grey"/>
+        <TextView
+            android:id="@+id/tvFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artworks"
+            app:layout_constraintEnd_toEndOf="@+id/fabFrame"
+            app:layout_constraintStart_toStartOf="@+id/fabFrame"
+            app:layout_constraintTop_toBottomOf="@+id/fabFrame" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_pin"
+            app:shapeAppearanceOverlay="@style/RoundedFab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fabFrame"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true"
+            android:contentDescription="frame"
+            app:backgroundTint="@color/md_theme_dark_tertiary"/>
+        <TextView
+            android:id="@+id/tvPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Map"
+            app:layout_constraintEnd_toEndOf="@+id/fabPin"
+            app:layout_constraintStart_toStartOf="@+id/fabPin"
+            app:layout_constraintTop_toBottomOf="@+id/fabPin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerListItems"
         android:layout_width="0dp"
@@ -23,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_custom_toolbar"
+        app:layout_constraintTop_toBottomOf="@id/constraint_options"
         tools:listitem="@layout/item" >
     </androidx.recyclerview.widget.RecyclerView>
 
