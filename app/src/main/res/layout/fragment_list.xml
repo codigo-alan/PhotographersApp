@@ -37,14 +37,14 @@
             app:layout_constraintTop_toTopOf="parent"
             android:focusable="true"
             app:shapeAppearanceOverlay="@style/RoundedFab"
-            android:contentDescription="calendar"
+            android:contentDescription="@string/fab_program"
             app:backgroundTint="@color/seed"/>
 
         <TextView
             android:id="@+id/tvCalendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Program"
+            android:text="@string/fab_program"
             app:layout_constraintEnd_toEndOf="@+id/fabCalendar"
             app:layout_constraintStart_toStartOf="@+id/fabCalendar"
             app:layout_constraintTop_toBottomOf="@+id/fabCalendar" />
@@ -61,13 +61,13 @@
             app:layout_constraintTop_toTopOf="parent"
             android:focusable="true"
             app:shapeAppearanceOverlay="@style/RoundedFab"
-            android:contentDescription="frame"
+            android:contentDescription="@string/fab_frame"
             app:backgroundTint="@color/custom_grey"/>
         <TextView
             android:id="@+id/tvFrame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Artworks"
+            android:text="@string/fab_frame"
             app:layout_constraintEnd_toEndOf="@+id/fabFrame"
             app:layout_constraintStart_toStartOf="@+id/fabFrame"
             app:layout_constraintTop_toBottomOf="@+id/fabFrame" />
@@ -83,13 +83,13 @@
             app:layout_constraintStart_toEndOf="@+id/fabFrame"
             app:layout_constraintTop_toTopOf="parent"
             android:focusable="true"
-            android:contentDescription="frame"
+            android:contentDescription="@string/fab_map"
             app:backgroundTint="@color/md_theme_dark_tertiary"/>
         <TextView
             android:id="@+id/tvPin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Map"
+            android:text="@string/fab_map"
             app:layout_constraintEnd_toEndOf="@+id/fabPin"
             app:layout_constraintStart_toStartOf="@+id/fabPin"
             app:layout_constraintTop_toBottomOf="@+id/fabPin" />

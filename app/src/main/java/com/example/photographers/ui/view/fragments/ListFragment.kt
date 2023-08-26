@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,11 +51,27 @@ class ListFragment : Fragment(), OnClickListener {
             Log.d("items", "$it") //dev
         }
 
+        binding.bottomNav.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.menu_item_scan -> showToast(it.title.toString())
+                R.id.menu_item_festivals -> showToast(it.title.toString())
+                R.id.menu_item_news -> showToast(it.title.toString())
+                R.id.menu_item_favs -> showToast(it.title.toString())
+                else -> showToast("Default")
+            }
+
+        }
+
     }
 
     override fun onClick(item: Item) {
         model.setSelectedItem(item)
         findNavController().navigate(R.id.action_listFragment_to_detailFragment)
+    }
+
+    private fun showToast(selectedItemTitle: String): Boolean{
+        Toast.makeText(requireContext(), selectedItemTitle, Toast.LENGTH_SHORT).show()
+        return true
     }
 
 }
