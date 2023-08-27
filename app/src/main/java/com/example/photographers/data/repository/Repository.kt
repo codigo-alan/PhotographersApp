@@ -15,6 +15,7 @@ class Repository(
 
     private val apiInterface = ApiInterface.create()
     var items = MutableLiveData<List<Item>>()
+    var itemsLocal = MutableLiveData<List<Item>>()
 
     override suspend fun fetchData() {
         val response = apiInterface.getData()
@@ -22,11 +23,17 @@ class Repository(
         if(response.isSuccessful) {
             items.postValue(response.body()!!.results)
             Log.d("apiResponse", "${response.body()!!.results}") //for dev
+            //TODO insert in db
         }
         else {
             items.postValue(listOf())
             Log.d("apiResponseFail", "${response.errorBody()}") //for dev
         }
+    }
+
+    override suspend fun localFetchData() {
+        localDataSource.fetchData() //call local repo to get data
+        //itemsLocal.postValue(localDataSource.items.value)
     }
 
 }

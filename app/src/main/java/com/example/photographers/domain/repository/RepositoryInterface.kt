@@ -7,4 +7,6 @@ interface RepositoryInterface {
     val remoteDataSource: RemoteDataSource
     val localDataSource: LocalDataSource
     suspend fun fetchData()
+
+    suspend fun localFetchData() //To get data from local db
 }
