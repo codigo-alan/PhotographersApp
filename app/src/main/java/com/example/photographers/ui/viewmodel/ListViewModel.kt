@@ -33,7 +33,7 @@ class ListViewModel : ViewModel() {
         }
     }
 
-     fun localFetchData(db: ItemDatabase?) {
+     fun localFetchData() {
         /*viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 repository.localFetchData(db) //fetch data from db
@@ -44,7 +44,7 @@ class ListViewModel : ViewModel() {
     }
 
     fun saveDataLocal(itemList: List<Item>, db: ItemDatabase?) {
-        repository.saveLocalData(itemList,db)
+        repository.localSaveFetchData(itemList, db)
     }
 
     fun setSelectedItem(clickedItem: Item){

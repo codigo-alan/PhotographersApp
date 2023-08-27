@@ -54,7 +54,7 @@ class ListFragment : Fragment(), OnClickListener {
         }
 
         model.items.observe(viewLifecycleOwner){
-            it?.let { itemAdapter.setItems(it) }
+            itemAdapter.setItems(it)
             Log.d("items", "$it") //dev
         }
 
@@ -70,10 +70,10 @@ class ListFragment : Fragment(), OnClickListener {
         }
 
         model.repository.remoteDataSource.itemsRemote.observe(viewLifecycleOwner){
-            it?.let{model.saveDataLocal(it,db)}
+            model.saveDataLocal(it, db)
         }
         model.repository.localDataSource.itemsLocal.observe(viewLifecycleOwner){
-            it?.let{model.localFetchData(db)}
+            model.localFetchData()
         }
 
     }

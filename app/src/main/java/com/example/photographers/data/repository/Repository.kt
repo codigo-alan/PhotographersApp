@@ -11,19 +11,17 @@ class Repository(): RepositoryInterface {
     override val localDataSource: LocalDataSource = LocalDataSource()
     override val remoteDataSource = RemoteDataSource()
 
-    /*private val _dataFlow: MutableStateFlow<List<Item>> = MutableStateFlow(listOf())
-    val dataFlow: Flow<List<Item>> get() = _dataFlow*/
-
     override suspend fun remoteFetchData() {
         remoteDataSource.fetchData() //call remote repo to get data
     }
 
-    override suspend fun localFetchData(db: ItemDatabase?) {
+    /* suspend fun localFetchData(db: ItemDatabase?) {
         localDataSource.fetchData(db) //call local repo to get data
-    }
+    }*/
 
-    fun saveLocalData(items: List<Item>, db: ItemDatabase?) {
-        localDataSource.insertItemsList(items,db)
+    override fun localSaveFetchData(items: List<Item>, db: ItemDatabase?) {
+        localDataSource.insertData(items, db)
+        localDataSource.fetchData(db) //call local repo to get data
     }
 
 }
