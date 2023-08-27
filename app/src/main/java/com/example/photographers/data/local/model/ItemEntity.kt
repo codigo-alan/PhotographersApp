@@ -9,7 +9,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "ItemEntity")
 data class ItemEntity (
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     var isFavorite: Boolean = false,
     val email: String,
     val firstName: String,

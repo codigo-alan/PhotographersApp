@@ -1,39 +1,29 @@
 package com.example.photographers.data.repository
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import com.example.photographers.data.local.ItemDatabase
 import com.example.photographers.data.local.LocalDataSource
-import com.example.photographers.data.remote.ApiInterface
 import com.example.photographers.data.remote.RemoteDataSource
 import com.example.photographers.domain.model.Item
 import com.example.photographers.domain.repository.RepositoryInterface
 
-class Repository(
-    override val remoteDataSource: RemoteDataSource,
-    override val localDataSource: LocalDataSource,
-    ): RepositoryInterface {
+class Repository(): RepositoryInterface {
 
-    private val apiInterface = ApiInterface.create()
-    var items = MutableLiveData<List<Item>>()
-    var itemsLocal = MutableLiveData<List<Item>>()
+    override val localDataSource: LocalDataSource = LocalDataSource()
+    override val remoteDataSource = RemoteDataSource()
 
-    override suspend fun fetchData() {
-        val response = apiInterface.getData()
+    /*private val _dataFlow: MutableStateFlow<List<Item>> = MutableStateFlow(listOf())
+    val dataFlow: Flow<List<Item>> get() = _dataFlow*/
 
-        if(response.isSuccessful) {
-            items.postValue(response.body()!!.results)
-            Log.d("apiResponse", "${response.body()!!.results}") //for dev
-            //TODO insert in db
-        }
-        else {
-            items.postValue(listOf())
-            Log.d("apiResponseFail", "${response.errorBody()}") //for dev
-        }
+    override suspend fun remoteFetchData() {
+        remoteDataSource.fetchData() //call remote repo to get data
     }
 
-    override suspend fun localFetchData() {
-        localDataSource.fetchData() //call local repo to get data
-        //itemsLocal.postValue(localDataSource.items.value)
+    override suspend fun localFetchData(db: ItemDatabase?) {
+        localDataSource.fetchData(db) //call local repo to get data
+    }
+
+    fun saveLocalData(items: List<Item>, db: ItemDatabase?) {
+        localDataSource.insertItemsList(items,db)
     }
 
 }

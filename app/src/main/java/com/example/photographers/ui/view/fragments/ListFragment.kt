@@ -11,7 +11,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.photographers.R
+import com.example.photographers.data.local.ItemDatabase
 import com.example.photographers.databinding.FragmentListBinding
 import com.example.photographers.domain.model.Item
 import com.example.photographers.ui.adapters.ItemAdapter
@@ -37,6 +39,11 @@ class ListFragment : Fragment(), OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val db = Room.databaseBuilder(
+                    requireContext(),
+                    ItemDatabase::class.java,
+                    "ItemDatabase").build()
+
         itemAdapter = ItemAdapter(model.items.value!!, this)
 
         linearLayoutManager = LinearLayoutManager(context)
@@ -47,7 +54,7 @@ class ListFragment : Fragment(), OnClickListener {
         }
 
         model.items.observe(viewLifecycleOwner){
-            itemAdapter.setItems(it)
+            it?.let { itemAdapter.setItems(it) }
             Log.d("items", "$it") //dev
         }
 
@@ -60,6 +67,13 @@ class ListFragment : Fragment(), OnClickListener {
                 else -> showToast("Default")
             }
 
+        }
+
+        model.repository.remoteDataSource.itemsRemote.observe(viewLifecycleOwner){
+            it?.let{model.saveDataLocal(it,db)}
+        }
+        model.repository.localDataSource.itemsLocal.observe(viewLifecycleOwner){
+            it?.let{model.localFetchData(db)}
         }
 
     }
