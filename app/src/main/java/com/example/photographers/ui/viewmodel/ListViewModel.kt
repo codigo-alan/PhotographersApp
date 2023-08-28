@@ -24,25 +24,21 @@ class ListViewModel : ViewModel() {
         remoteFetchData()
     }
 
+    //Called to start the process of obtain remote data
     private fun remoteFetchData() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 repository.remoteFetchData() //fetch data from repo
             }
-            //_items.postValue(repository.remoteDataSource.itemsRemote.value) //TODO delete this line
         }
     }
 
+    //Called when changes data in db, to set items in recycler
      fun localFetchData() {
-        /*viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                repository.localFetchData(db) //fetch data from db
-            }
-            _items.postValue(repository.localDataSource.itemsLocal.value) //set items with the modified value from db
-        }*/
          _items.postValue(repository.localDataSource.itemsLocal.value)
     }
 
+    //Called when obtains data from api, to store this data in local
     fun saveDataLocal(itemList: List<Item>, db: ItemDatabase?) {
         repository.localSaveFetchData(itemList, db)
     }

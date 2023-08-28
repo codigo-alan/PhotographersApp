@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
-    private val model: ListViewModel by activityViewModels() //TODO for the moment only one viewModel
+    private val model: ListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

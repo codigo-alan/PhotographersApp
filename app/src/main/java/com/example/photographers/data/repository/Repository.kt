@@ -12,16 +12,12 @@ class Repository(): RepositoryInterface {
     override val remoteDataSource = RemoteDataSource()
 
     override suspend fun remoteFetchData() {
-        remoteDataSource.fetchData() //call remote repo to get data
+        remoteDataSource.fetchData() //call remote repo to get data from api
     }
 
-    /* suspend fun localFetchData(db: ItemDatabase?) {
-        localDataSource.fetchData(db) //call local repo to get data
-    }*/
-
     override fun localSaveFetchData(items: List<Item>, db: ItemDatabase?) {
-        localDataSource.insertData(items, db)
-        localDataSource.fetchData(db) //call local repo to get data
+        localDataSource.insertData(items, db) //call local repo to save data in db
+        localDataSource.fetchData(db) //call local repo to get data from db
     }
 
 }

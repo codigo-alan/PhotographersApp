@@ -11,7 +11,5 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addItem(itemEntityList: List<ItemEntity>)
 
-    @Delete
-    fun deleteItem(itemEntity: ItemEntity) //TODO delete a list
 
 }

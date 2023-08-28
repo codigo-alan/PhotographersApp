@@ -1,7 +1,6 @@
 package com.example.photographers.ui.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +38,7 @@ class ListFragment : Fragment(), OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Instance of ItemDatabase to store local data
         val db = Room.databaseBuilder(
                     requireContext(),
                     ItemDatabase::class.java,
@@ -55,7 +55,6 @@ class ListFragment : Fragment(), OnClickListener {
 
         model.items.observe(viewLifecycleOwner){
             itemAdapter.setItems(it)
-            Log.d("items", "$it") //dev
         }
 
         binding.bottomNav.setOnItemSelectedListener {
