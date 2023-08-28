@@ -33,18 +33,13 @@ class LocalDataSource() {
         try {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.itemDao().addItem(itemEntityList)
-                /*val itemsTemp = db!!.itemDao().getItems().map(::entityToItem)
-                withContext(Dispatchers.Main) {
-                    itemsLocal.postValue(itemsTemp)
-                    Log.d("get local", "${itemsLocal.value}")
-                }*/
             }
         } catch (e: Exception) {
             Log.d("insertLocal", "${e.message}")
         }
     }
 
-    private fun entityToItem(itemEntity: ItemEntity): Item {
+    fun entityToItem(itemEntity: ItemEntity): Item {
         return Item(
             itemEntity.id,
             itemEntity.email,
@@ -54,7 +49,7 @@ class LocalDataSource() {
             itemEntity.description,
             itemEntity.image)
     }
-    private fun itemToEntity(item: Item): ItemEntity {
+    fun itemToEntity(item: Item): ItemEntity {
         return ItemEntity(
             item.id,
             false,
