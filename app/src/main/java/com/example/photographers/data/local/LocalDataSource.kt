@@ -33,11 +33,6 @@ class LocalDataSource() {
         try {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.itemDao().addItem(itemEntityList)
-                /*val itemsTemp = db!!.itemDao().getItems().map(::entityToItem)
-                withContext(Dispatchers.Main) {
-                    itemsLocal.postValue(itemsTemp)
-                    Log.d("get local", "${itemsLocal.value}")
-                }*/
             }
         } catch (e: Exception) {
             Log.d("insertLocal", "${e.message}")
