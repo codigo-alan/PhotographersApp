@@ -39,7 +39,7 @@ class LocalDataSource() {
         }
     }
 
-    private fun entityToItem(itemEntity: ItemEntity): Item {
+    fun entityToItem(itemEntity: ItemEntity): Item {
         return Item(
             itemEntity.id,
             itemEntity.email,
@@ -49,7 +49,7 @@ class LocalDataSource() {
             itemEntity.description,
             itemEntity.image)
     }
-    private fun itemToEntity(item: Item): ItemEntity {
+    fun itemToEntity(item: Item): ItemEntity {
         return ItemEntity(
             item.id,
             false,
