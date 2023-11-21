@@ -1,6 +1,6 @@
 # PhotographersApp
 
-Project to learn how to implement SOLID principles in Android development using DDD (Data, Driven, Domain) architecture. Consume an API Rest, save data locally and show it 👓
+Project to learn how to implement SOLID principles in Android development using DDD (Domain, Driven, Design) architecture. Consume an API Rest, save data locally and show it 👓
 
 * Retrofit
 * Room
