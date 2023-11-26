@@ -31,16 +31,16 @@ The project follows the Clean DDD architecture using MVVM design pattern, which 
 ## Folder Structure 📁
 The project is structured as follows:
 
- 📁 app/📁 src/📁 main
-  📁 java/com/example/myapp
-      📁 data -> Contains repository implementations and data sources
-         📁 local repo -> Use for local data fetch
-          📁 remote repo -> Use for remote data fetch
-          📁 repo -> Use repo domain interface
-      📁 domain -> Contains use cases and business logic
-          📁 models -> Contains model classes
-          📁 repo interface -> Interface of domain repository
-      📁 ui -> Contains ViewModels and UI components
+ * 📁 app/📁 src/📁 main
+ *  📁 java/com/example/myapp
+       📁 data -> Contains repository implementations and data sources
+           📁 local repo -> Use for local data fetch
+           📁 remote repo -> Use for remote data fetch
+           📁 repo -> Use repo domain interface
+       📁 domain -> Contains use cases and business logic
+           📁 models -> Contains model classes
+           📁 repo interface -> Interface of domain repository
+       📁 ui -> Contains ViewModels and UI components
 
 ## Getting Started
 
