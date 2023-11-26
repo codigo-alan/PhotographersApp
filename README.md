@@ -33,14 +33,14 @@ The project is structured as follows:
 
  📁 app/📁 src/📁 main  
  &nbsp;&nbsp;📁 java/com/example/myapp  
-|      📁 data -> Contains repository implementations and data sources  
-           📁 local repo -> Use for local data fetch  
-           📁 remote repo -> Use for remote data fetch  
-           📁 repo -> Use repo domain interface  
-       📁 domain -> Contains use cases and business logic  
-           📁 models -> Contains model classes  
-           📁 repo interface -> Interface of domain repository  
-       📁 ui -> Contains ViewModels and UI components  
+ &nbsp;&nbsp;&nbsp;&nbsp;📁 data -> Contains repository implementations and data sources  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 local repo -> Use for local data fetch  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 remote repo -> Use for remote data fetch  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 repo -> Use repo domain interface  
+&nbsp;&nbsp;&nbsp;&nbsp;📁 domain -> Contains use cases and business logic  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 models -> Contains model classes  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 repo interface -> Interface of domain repository  
+&nbsp;&nbsp;&nbsp;&nbsp;📁 ui -> Contains ViewModels and UI components  
 
 ## Getting Started
 
