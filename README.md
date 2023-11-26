@@ -23,24 +23,24 @@ Project to learn how to implement SOLID principles in Android development using 
 ## Architecture ✏
 The project follows the Clean DDD architecture using MVVM design pattern, which consists of the following layers:
 
-✏ Presentation Layer: Contains the UI components, ViewModels, and XML files.
-✏ Domain Layer: Contains the business logic and use cases.
-✏ Data Layer: Contains the repositories, data sources, API communication.
+* ✏ Presentation Layer: Contains the UI components, ViewModels, and XML files.
+* ✏ Domain Layer: Contains the business logic and use cases.
+* ✏ Data Layer: Contains the repositories, data sources, API communication.
 
 
 ## Folder Structure 📁
 The project is structured as follows:
 
-* 📁 app/📁 src/📁 main
-*  📁 java/com/example/myapp
-*      📁 data -> Contains repository implementations and data sources
-*          📁 local repo -> Use for local data fetch
-*          📁 remote repo -> Use for remote data fetch
-*          📁 repo -> Use repo domain interface
-*      📁 domain -> Contains use cases and business logic
-*          📁 models -> Contains model classes
-*          📁 repo interface -> Interface of domain repository
-*      📁 ui -> Contains ViewModels and UI components
+ 📁 app/📁 src/📁 main
+  📁 java/com/example/myapp
+      📁 data -> Contains repository implementations and data sources
+         📁 local repo -> Use for local data fetch
+          📁 remote repo -> Use for remote data fetch
+          📁 repo -> Use repo domain interface
+      📁 domain -> Contains use cases and business logic
+          📁 models -> Contains model classes
+          📁 repo interface -> Interface of domain repository
+      📁 ui -> Contains ViewModels and UI components
 
 ## Getting Started
 
