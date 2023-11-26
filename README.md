@@ -33,8 +33,8 @@ The project is structured as follows:
 
  📁 app/📁 src/📁 main  
    📁 java/com/example/myapp  
- ||      📁 data -> Contains repository implementations and data sources  
- |||          📁 local repo -> Use for local data fetch  
+ |      📁 data -> Contains repository implementations and data sources  
+ |          📁 local repo -> Use for local data fetch  
            📁 remote repo -> Use for remote data fetch  
            📁 repo -> Use repo domain interface  
        📁 domain -> Contains use cases and business logic  
