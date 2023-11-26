@@ -1,4 +1,4 @@
-# PhotographersApp with DDD and MVVM
+# ⌨ PhotographersApp with DDD and MVVM ⌨
 
 Project to learn how to implement SOLID principles in Android development using DDD (Domain, Driven, Design) architecture. Consume an API Rest, save data locally and show it 👓
 
@@ -31,7 +31,7 @@ The project follows the Clean DDD architecture using MVVM design pattern, which 
 ## Folder Structure 📁
 The project is structured as follows:
 
- 📁 app/📁 src/📁 main  
+ 📁 app/src/main  
 &nbsp;&nbsp;📁 java/com/example/myapp  
 &nbsp;&nbsp;&nbsp;&nbsp;📁 data -> Contains repository implementations and data sources  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📁 local repo -> Use for local data fetch  
